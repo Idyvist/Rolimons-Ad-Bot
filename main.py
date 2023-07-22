@@ -1,9 +1,5 @@
-import requests, time, configparser, json, threading, ctypes, random, colorama, os, re
-from colorama import init, Fore
+import requests, time, configparser, json, threading, ctypes, os
 from threading import Thread
-from requests_html import HTMLSession
-session = HTMLSession()
-init()
 
 sent = 0
 failed = 0
@@ -24,15 +20,6 @@ class Player:
             self.id = id
             self.value = value
             self.uaid = uaid
-
-    def updateRolimons(self):
-        while True:
-            try:
-                session.get(f'https://www.rolimons.com/api/playerassets/{self.userId}').text # htmlSession request which executes page javascript which updates inventory so no more failed
-                return None
-            except:
-                time.sleep(5)
-                pass
         
     def get_inv(self):
         user_response = json.loads(
@@ -63,12 +50,6 @@ class Player:
     def send(self):
         global sent, failed
         offer_items = self.get_inv()
-        items_to_choose = [74891470, 4390891467, 527365852, 1235488, 215718515, 71499623, 494291269, 1365767, 439945661, 1029025, 1744060292, 26019070]
-        for item in offer_items:
-            if item in items_to_choose:
-                items_to_choose.remove(item)
-        request_items = random.sample(items_to_choose, 3)
-        print("Offered Items: " + str(offer_items))
         r = requests.post(
             'https://www.rolimons.com/tradeapi/create',
 
@@ -78,7 +59,7 @@ class Player:
                 },
 
             json = {
-                "player_id":self.userId,
+                "player_id": self.userId,
                 "offer_item_ids": offer_items,
                 "request_item_ids": [],
                 "request_tags":["any", "upgrade", "downgrade"]
