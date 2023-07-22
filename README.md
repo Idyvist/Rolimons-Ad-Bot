@@ -3,7 +3,9 @@
 By <b>Idyvist</b> | [My Roblox Profile](https://www.roblox.com/users/111211330/profile)
 
 ## Description
-  This bot will automatically post ads on Rolimon's every 20 minutes with your <b>highest</b> items that are <b>not</b> on hold. The code is open-source and you are free to modify this as you wish. Feel free to add me on Discord (idyvist) if you need any help.
+  This bot will automatically post ads on Rolimon's every 20 minutes with your <b>highest</b> items that are <b>not</b> on hold. The code is open-source and you are free to modify this as you wish. 
+  
+  Feel free to add me on Discord (<b>idyvist</b>) if you need any help.
 
 ## How to Use
 * Step 1
